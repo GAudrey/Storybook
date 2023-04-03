@@ -1,0 +1,3 @@
+<button class="btn {{getColor(theme)}} {{disabled}}" disabled={{disabled}} [ngStyle]="{'background-color': color}" [ngStyle]="{'border-radius.px': radius}" [ngStyle]="{'color': darkText ? 'white' : 'black'}" [ngStyle]="{'box-shadow': getBoxShadow(shadowDistance, shadowColor)}">
+  <ng-content></ng-content>
+</button>
