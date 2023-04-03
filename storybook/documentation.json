@@ -69,7 +69,7 @@
                 }
             ],
             "stylesData": "",
-            "templateData": "<div class=\"flex items-center justify-center h-screen bg-slate-100\">\n  <app-flash-message heading=\"Bonjour\" msg=\"Lorem ipsum dolor sit amet, consectetur adipisicing elit.\" type=\"error\"></app-flash-message>\n</div>"
+            "templateData": "<div class=\"flex items-center justify-center h-screen bg-slate-100\">\n  <!-- <app-flash-message heading=\"Bonjour\" msg=\"Lorem ipsum dolor sit amet, consectetur adipisicing elit.\" type=\"error\"></app-flash-message> -->\n\n  <app-button theme=\"danger\" disabled=\"disabled\">Click on me!</app-button>\n</div>"
         },
         {
             "name": "ButtonComponent",
@@ -196,6 +196,95 @@
             }
         },
         {
+            "name": "ButtonComponent",
+            "id": "component-ButtonComponent-b62b726c226f6447609571fd971b0a30fa2b5f0fe07a589097aead852f2f2c11b0735eb8e65198f431a171ad607f71b441c991f9511f5f2edf70003fb0136faa-1",
+            "file": "src/app/button/button.component.ts",
+            "encapsulation": [],
+            "entryComponents": [],
+            "inputs": [],
+            "outputs": [],
+            "providers": [],
+            "selector": "app-button",
+            "styleUrls": [
+                "./button.component.css"
+            ],
+            "styles": [],
+            "templateUrl": [
+                "./button.component.html"
+            ],
+            "viewProviders": [],
+            "inputsClass": [
+                {
+                    "name": "disabled",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 10,
+                    "type": "string",
+                    "decorators": []
+                },
+                {
+                    "name": "theme",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "line": 9,
+                    "type": "string",
+                    "decorators": []
+                }
+            ],
+            "outputsClass": [],
+            "propertiesClass": [],
+            "methodsClass": [
+                {
+                    "name": "getColor",
+                    "args": [
+                        {
+                            "name": "theme",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "optional": false,
+                    "returnType": "string",
+                    "typeParameters": [],
+                    "line": 12,
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "jsdoctags": [
+                        {
+                            "name": "theme",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ],
+            "deprecated": false,
+            "deprecationMessage": "",
+            "hostBindings": [],
+            "hostListeners": [],
+            "description": "",
+            "rawdescription": "\n",
+            "type": "component",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'app-button',\n  templateUrl: './button.component.html',\n  styleUrls: ['./button.component.css']\n})\nexport class ButtonComponent {\n  @Input(\"theme\") declare theme: string;\n  @Input(\"disabled\") declare disabled: string;\n\n  getColor(theme: string) {\n    return theme ? theme : \"default\";\n  }\n}\n",
+            "assetsDirs": [],
+            "styleUrlsData": [
+                {
+                    "data": ".btn{\r\n  @apply px-8 py-2 rounded-md shadow-2xl font-bold text-xl;\r\n}\r\n\r\n.btn.default{\r\n  @apply bg-gray-400 text-black;\r\n}\r\n\r\n.btn.danger{\r\n  @apply bg-red-500 text-white;\r\n}\r\n\r\n.btn.valid{\r\n  @apply bg-green-500 text-white;\r\n}\r\n\r\n.btn.primary{\r\n  @apply bg-indigo-500 text-white;\r\n}\r\n\r\n.disabled{\r\n  @apply opacity-50 cursor-not-allowed;\r\n}",
+                    "styleUrl": "./button.component.css"
+                }
+            ],
+            "stylesData": "",
+            "isDuplicate": true,
+            "duplicateId": 1,
+            "duplicateName": "ButtonComponent-1",
+            "templateData": "<button class=\"btn {{getColor(theme)}} {{disabled}}\" disabled={{disabled}}>\n  <ng-content></ng-content>\n</button>"
+        },
+        {
             "name": "FlashMessageComponent",
             "id": "component-FlashMessageComponent-ea9ec267a48f7f748c7eeae7b4c1297504b1d00d050a82a344e22dc97ebd031bc659accea45afee985fae6dc7722d5760a2d306f501051004c9ff75b22099cd5",
             "file": "src/app/flash-message/flash-message.component.ts",
@@ -282,7 +371,7 @@
             "assetsDirs": [],
             "styleUrlsData": [
                 {
-                    "data": ".message{\r\n  @apply border-indigo-500;\r\n}\r\n\r\n.message h2{\r\n  @apply text-indigo-500;\r\n}\r\n\r\n.message::before{\r\n  content: \"i\";\r\n  @apply flex w-8 h-8 bg-indigo-500 ml-5 self-center rounded-full justify-center items-center text-white text-xl font-bold;\r\n}\r\n\r\n.error{\r\n  @apply border-red-500;\r\n}\r\n\r\n.error h2{\r\n  @apply text-red-500;\r\n}\r\n\r\n.error::before{\r\n  content: \"x\";\r\n  @apply flex w-8 h-8 bg-red-500 ml-5 self-center rounded-full justify-center items-center text-white text-xl font-bold;\r\n}\r\n\r\n.warning{\r\n  @apply border-yellow-500;\r\n}\r\n\r\n.warning h2{\r\n  @apply text-yellow-500;\r\n}\r\n\r\n.warning::before{\r\n  content: \"!\";\r\n  @apply flex w-8 h-8 bg-yellow-500 ml-5 self-center rounded-full justify-center items-center text-white text-xl font-bold;\r\n}\r\n\r\n.success{\r\n  @apply border-green-500;\r\n}\r\n\r\n.success h2{\r\n  @apply text-green-500;\r\n}\r\n\r\n.success::before{\r\n  content: \"V\";\r\n  @apply flex w-8 h-8 bg-green-500 ml-5 self-center rounded-full justify-center items-center text-white text-xl font-bold;\r\n}",
+                    "data": ".message{\r\n  @apply border-indigo-500;\r\n}\r\n\r\n.message h2{\r\n  @apply text-indigo-500;\r\n}\r\n\r\n.message::before{\r\n  content: \"i\";\r\n  @apply flex w-8 h-8 bg-indigo-500 ml-5 self-center rounded-full justify-center items-center text-white text-xl font-bold;\r\n}\r\n\r\n.error{\r\n  @apply border-red-500;\r\n}\r\n\r\n.error h2{\r\n  @apply text-red-500;\r\n}\r\n\r\n.error::before{\r\n  content: \"x\";\r\n  @apply flex w-8 h-8 bg-red-500 ml-5 self-center rounded-full justify-center items-center text-white text-xl font-bold;\r\n}\r\n\r\n.warning{\r\n  @apply border-yellow-500;\r\n}\r\n\r\n.warning h2{\r\n  @apply text-yellow-500;\r\n}\r\n\r\n.warning::before{\r\n  content: \"!\";\r\n  @apply flex w-8 h-8 bg-yellow-500 ml-5 self-center rounded-full justify-center items-center text-white text-xl font-bold;\r\n}\r\n\r\n.success{\r\n  @apply border-green-500;\r\n}\r\n\r\n.success h2{\r\n  @apply text-green-500;\r\n}\r\n\r\n.success::before{\r\n  content: \"v\";\r\n  @apply flex w-8 h-8 bg-green-500 ml-5 self-center rounded-full justify-center items-center text-white text-xl font-bold;\r\n}",
                     "styleUrl": "./flash-message.component.css"
                 }
             ],
@@ -457,13 +546,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-eb3d3bc0bc0a1738ee0b622c2e64d3054aaca37c0d37f3da38384f0cb6881b3150f22682c75dca47920b1d1c9e5cbe83492a4673115984e9eb6fe703bf9ab4a7",
+            "id": "module-AppModule-10b5ca1e2dcab75f6c0b2c333627bd7ec4b73277b10bcd4741ffbd40159b2416a6e4f66f16352b5c70ee3a119ac853f463b077ccfa4184f5432838b43ba4d7ef",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { FlashMessageComponent } from './flash-message/flash-message.component';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    FlashMessageComponent\n  ],\n  imports: [\n    BrowserModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { BrowserModule } from '@angular/platform-browser';\n\nimport { AppComponent } from './app.component';\nimport { FlashMessageComponent } from './flash-message/flash-message.component';\nimport { ButtonComponent } from './button/button.component';\n\n@NgModule({\n  declarations: [\n    AppComponent,\n    FlashMessageComponent,\n    ButtonComponent\n  ],\n  imports: [\n    BrowserModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n",
             "children": [
                 {
                     "type": "providers",
@@ -589,6 +678,16 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
+                "file": "src/stories/0-flash-message.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story<FlashMessageComponent>",
+                "defaultValue": "(args: FlashMessageComponent) => ({props:args})"
+            },
+            {
+                "name": "Template",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
                 "file": "src/stories/Button.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
@@ -614,6 +713,46 @@
                 "deprecationMessage": "",
                 "type": "Story<Page>",
                 "defaultValue": "(args: Page) => ({\n  props: args,\n})"
+            },
+            {
+                "name": "Theme",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/0-flash-message.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "Story",
+                "defaultValue": "(args) => ({\r\n  props: args,\r\n  template: `\r\n    <div *ngFor=\"let theme of ['message', 'warning', 'success', 'error']\">\r\n      <app-flash-message msg=\"Je suis un chat\" heading={{theme}} type={{theme}}></app-flash-message>\r\n    </div>\r\n  `\r\n})"
+            },
+            {
+                "name": "Warning",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/0-flash-message.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithMessage",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/0-flash-message.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
+            },
+            {
+                "name": "WithoutMessage",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/stories/0-flash-message.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             }
         ],
         "functions": [],
@@ -735,6 +874,58 @@
                     "type": "Story<Page>",
                     "defaultValue": "(args: Page) => ({\n  props: args,\n})"
                 }
+            ],
+            "src/stories/0-flash-message.stories.ts": [
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/0-flash-message.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story<FlashMessageComponent>",
+                    "defaultValue": "(args: FlashMessageComponent) => ({props:args})"
+                },
+                {
+                    "name": "Theme",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/0-flash-message.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => ({\r\n  props: args,\r\n  template: `\r\n    <div *ngFor=\"let theme of ['message', 'warning', 'success', 'error']\">\r\n      <app-flash-message msg=\"Je suis un chat\" heading={{theme}} type={{theme}}></app-flash-message>\r\n    </div>\r\n  `\r\n})"
+                },
+                {
+                    "name": "Warning",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/0-flash-message.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithMessage",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/0-flash-message.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "WithoutMessage",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/stories/0-flash-message.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                }
             ]
         },
         "groupedFunctions": {},
@@ -743,7 +934,7 @@
     },
     "routes": [],
     "coverage": {
-        "count": 4,
+        "count": 3,
         "status": "low",
         "files": [
             {
@@ -756,12 +947,71 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/button/button.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "ButtonComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/4",
+                "status": "low"
+            },
+            {
                 "filePath": "src/app/flash-message/flash-message.component.ts",
                 "type": "component",
                 "linktype": "component",
                 "name": "FlashMessageComponent",
                 "coveragePercent": 0,
                 "coverageCount": "0/5",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/0-flash-message.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/0-flash-message.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Theme",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/0-flash-message.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Warning",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/0-flash-message.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithMessage",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/stories/0-flash-message.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "WithoutMessage",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
                 "status": "low"
             },
             {
